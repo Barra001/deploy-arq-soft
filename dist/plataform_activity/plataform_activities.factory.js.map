@@ -1,0 +1,1 @@
+{"version":3,"file":"plataform_activities.factory.js","sourceRoot":"","sources":["../../src/plataform_activity/plataform_activities.factory.ts"],"names":[],"mappings":";;;AAAA,yFAAoF;AAGpF,MAAa,0BAA0B;IACrC,MAAM,CAAC,MAAM,CAAC,MAAgB;QAC5B,MAAM,wBAAwB,GAAG,IAAI,yDAA0B,CAAC,MAAM,CAAC,CAAC;QACxE,OAAO,wBAAwB,CAAC;IAClC,CAAC;CACF;AALD,gEAKC"}

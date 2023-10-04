@@ -1,0 +1,1 @@
+{"version":3,"file":"players.factory.js","sourceRoot":"","sources":["../../src/player/players.factory.ts"],"names":[],"mappings":";;;AAEA,+DAA2D;AAK3D,MAAa,cAAc;IACzB,MAAM,CAAC,MAAM,CACX,iBAA6C,EAC7C,wBAA6D,EAC7D,cAAwC,EACxC,iBAA6C;QAE7C,MAAM,aAAa,GAAG,IAAI,gCAAc,CACtC,cAAc,EACd,iBAAiB,EACjB,iBAAiB,EACjB,wBAAwB,CACzB,CAAC;QACF,OAAO,aAAa,CAAC;IACvB,CAAC;CACF;AAfD,wCAeC"}

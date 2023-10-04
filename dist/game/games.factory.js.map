@@ -1,0 +1,1 @@
+{"version":3,"file":"games.factory.js","sourceRoot":"","sources":["../../src/game/games.factory.ts"],"names":[],"mappings":";;;AAEA,2DAAuD;AAKvD,MAAa,YAAY;IACrB,MAAM,CAAC,MAAM,CACT,wBAA6D,EAC7D,cAAwC,EACxC,YAAoC;QAEpC,MAAM,WAAW,GAAG,IAAI,4BAAY,CAChC,cAAc,EACd,wBAAwB,EACxB,YAAY,CACf,CAAC;QACF,OAAO,WAAW,CAAC;IACvB,CAAC;CACJ;AAbD,oCAaC"}

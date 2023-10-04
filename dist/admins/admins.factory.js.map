@@ -1,0 +1,1 @@
+{"version":3,"file":"admins.factory.js","sourceRoot":"","sources":["../../src/admins/admins.factory.ts"],"names":[],"mappings":";;;AAEA,6DAAyD;AAGzD,MAAa,aAAa;IACxB,MAAM,CAAC,MAAM,CACX,eAA0C,EAC1C,iBAA6C;QAE7C,MAAM,YAAY,GAAG,IAAI,8BAAa,CAAC,eAAe,EAAE,iBAAiB,CAAC,CAAC;QAC3E,OAAO,YAAY,CAAC;IACtB,CAAC;CACF;AARD,sCAQC"}

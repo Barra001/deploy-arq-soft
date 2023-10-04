@@ -1,0 +1,1 @@
+{"version":3,"file":"userInformation.entity.js","sourceRoot":"","sources":["../../../src/transactions/entities/userInformation.entity.ts"],"names":[],"mappings":";;;AACA,MAAa,eAAe;IAK1B,YAAY,MAAc,EAAE,QAAgB,EAAE,IAAY;QACxD,IAAI,CAAC,MAAM,GAAG,MAAM,CAAC;QACrB,IAAI,CAAC,QAAQ,GAAG,QAAQ,CAAC;QACzB,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;IACnB,CAAC;CACF;AAVD,0CAUC"}

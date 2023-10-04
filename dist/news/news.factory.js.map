@@ -1,0 +1,1 @@
+{"version":3,"file":"news.factory.js","sourceRoot":"","sources":["../../src/news/news.factory.ts"],"names":[],"mappings":";;;AAEA,yDAAqD;AAIrD,MAAa,WAAW;IACpB,MAAM,CAAC,MAAM,CACT,wBAA6D,EAC7D,cAAuC;QAEvC,MAAM,WAAW,GAAG,IAAI,0BAAW,CAC/B,cAAc,EACd,wBAAwB,CAC3B,CAAC;QACF,OAAO,WAAW,CAAC;IACvB,CAAC;CACJ;AAXD,kCAWC"}

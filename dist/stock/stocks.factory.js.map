@@ -1,0 +1,1 @@
+{"version":3,"file":"stocks.factory.js","sourceRoot":"","sources":["../../src/stock/stocks.factory.ts"],"names":[],"mappings":";;;AACA,6DAAyD;AAGzD,MAAa,aAAa;IACxB,MAAM,CAAC,MAAM,CAAC,gBAAkC;QAC9C,MAAM,aAAa,GAAG,IAAI,8BAAa,CAAC,gBAAgB,CAAC,CAAC;QAC1D,OAAO,aAAa,CAAC;IACvB,CAAC;CACF;AALD,sCAKC"}

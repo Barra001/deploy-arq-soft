@@ -1,0 +1,1 @@
+{"version":3,"file":"activityLogger.js","sourceRoot":"","sources":["../../../src/plataform_activity/loggers/activityLogger.ts"],"names":[],"mappings":";;;AAAA,MAAa,cAAc;IAGzB,MAAM,CAAC,WAAW;QAChB,IAAI,CAAC,cAAc,CAAC,QAAQ,EAAE;YAC5B,cAAc,CAAC,QAAQ,GAAG,IAAI,cAAc,EAAE,CAAC;SAChD;QACD,OAAO,cAAc,CAAC,QAAQ,CAAC;IACjC,CAAC;;AARH,wCASC;AARgB,uBAAQ,GAA0B,IAAI,CAAC"}
