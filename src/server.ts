@@ -3,11 +3,9 @@ import { initEndpoints } from "./endpoints";
 import dotenv from "dotenv";
 import cors from "cors";
 import { PlataformActivitiesServiceInterface } from "./plataform_activity/service/plataform_activities.service.interface";
-import { RedisClient } from "./database/redis.database";
 
 export async function initServer(
-  platformActivitiesService: PlataformActivitiesServiceInterface,
-  redisClient: RedisClient
+  platformActivitiesService: PlataformActivitiesServiceInterface
 ): Promise<void> {
   dotenv.config();
   const port = process.env.API_PORT;
@@ -38,7 +36,7 @@ export async function initServer(
   });
 
   app.use(express.json());
-  app.use((await initEndpoints(platformActivitiesService, redisClient)).router);
+  app.use((await initEndpoints(platformActivitiesService)).router);
   app.listen(port);
 
   console.log(`Main app started at http://localhost:${port}`);

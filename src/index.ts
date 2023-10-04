@@ -3,7 +3,6 @@ import { connectToMongoDatabase } from "./database/mongo.database";
 
 import { initServer } from "./server";
 import { PlataformActivitiesFactory } from "./plataform_activity/plataform_activities.factory";
-import { RedisClient } from "./database/redis.database";
 import { Readable } from "stream";
 import { logWorker } from "./plataform_activity/loggers/loggingWorker";
 
@@ -22,8 +21,6 @@ import { logWorker } from "./plataform_activity/loggers/loggingWorker";
 
   const plataformActivityService =
     PlataformActivitiesFactory.create(loggerService);
-  const redisClient = new RedisClient(plataformActivityService);
-  await redisClient.connect();
 
-  await initServer(plataformActivityService, redisClient);
+  await initServer(plataformActivityService);
 })();

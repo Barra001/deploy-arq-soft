@@ -6,15 +6,13 @@ import { PlataformActivitiesServiceInterface } from "./../../plataform_activity/
 import { LogType } from "./../../plataform_activity/entities/log-event";
 import { AlgorithmType, Game } from "./../../game/entities/game.entity";
 import { GamesServiceInterface } from "./../../game/service/games.service.interface";
-import { RedisClient } from "src/database/redis.database";
 
 export class AlgorithmsServices implements AlgorithmsServicesInterface {
   constructor(
     private readonly stocksService: StocksServiceInterface,
     private readonly transactionsService: TransactionServiceInterface,
     private readonly platformActivityService: PlataformActivitiesServiceInterface,
-    private readonly gamesServicee: GamesServiceInterface,
-    private readonly redisClient: RedisClient
+    private readonly gamesServicee: GamesServiceInterface
   ) {}
 
   async getDecision(stockCode: string, gameId: string): Promise<string> {
@@ -38,22 +36,12 @@ export class AlgorithmsServices implements AlgorithmsServicesInterface {
     stockCode: string,
     gameId: string
   ): Promise<string> {
-    const cachedDecision = await this.redisClient.getDecisionFromRedis(
-      `${stockCode}-${gameId}priceEvolution`
-    );
-    if (cachedDecision) return cachedDecision;
-
     const stock = await this.stocksService.find({
       code: stockCode,
       gameId: gameId,
     });
     const averageValue = this.calculateAverageValue(stock.historicalValues);
     const decision = stock.unitValue >= averageValue ? "sell" : "buy";
-
-    await this.redisClient.storeDecisionInRedis(
-      `${stock.code}-${gameId}priceEvolution`,
-      decision
-    );
 
     return decision;
   }
@@ -70,11 +58,6 @@ export class AlgorithmsServices implements AlgorithmsServicesInterface {
 
     if (transactions.length <= 5) return "Wait";
 
-    const cachedDecision = await this.redisClient.getDecisionFromRedis(
-      `${stockCode}-${gameId}transactionBehaviour`
-    );
-    if (cachedDecision) return cachedDecision;
-
     const buyTransactions = transactions.filter(
       (transaction) => transaction.type === ShareInteraction.Purchase
     ).length;
@@ -87,11 +70,6 @@ export class AlgorithmsServices implements AlgorithmsServicesInterface {
 
     if (buyPercentage >= 70) result = "Buy";
     if (sellPercentage >= 70) result = "Sell";
-
-    await this.redisClient.storeDecisionInRedis(
-      `${stockCode}-${gameId}transactionBehaviour`,
-      result
-    );
     return result;
   }
 

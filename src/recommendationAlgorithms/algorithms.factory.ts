@@ -4,22 +4,19 @@ import { StocksServiceInterface } from "src/stock/service/stocks.service.interfa
 import { TransactionServiceInterface } from "src/transactions/service/transactions.service.interface";
 import { PlataformActivitiesServiceInterface } from "src/plataform_activity/service/plataform_activities.service.interface";
 import { GamesServiceInterface } from "src/game/service/games.service.interface";
-import { RedisClient } from "src/database/redis.database";
 
 export class AlgorithmsFactory {
   static create(
     stocksService: StocksServiceInterface,
     transactionsService: TransactionServiceInterface,
     PlataformActivitiesService: PlataformActivitiesServiceInterface,
-    gameService: GamesServiceInterface,
-    redisClient: RedisClient
+    gameService: GamesServiceInterface
   ): AlgorithmsServicesInterface {
     const algorithmsService = new AlgorithmsServices(
       stocksService,
       transactionsService,
       PlataformActivitiesService,
-      gameService,
-      redisClient
+      gameService
     );
 
     return algorithmsService;

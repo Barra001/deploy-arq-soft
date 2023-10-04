@@ -7,22 +7,15 @@ exports.MonitoringService = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const monitoring_service_entity_1 = require("../entities/monitoring_service.entity");
 class MonitoringService {
-    async getStatus(redis) {
+    async getStatus() {
         const status = new monitoring_service_entity_1.MonitoringServiceEntity();
         status.status.ableToReceiveRequests = true;
         const bdStatus = await this.getBdStatus();
-        const redisStatus = await this.getRedisStatus(redis);
         if (bdStatus) {
             status.status.database.connected = true;
         }
         else {
             status.status.database.error = "Database not connected";
-        }
-        if (redisStatus) {
-            status.status.redis.connected = true;
-        }
-        else {
-            status.status.redis.error = "Redis not connected";
         }
         return status;
     }
@@ -32,15 +25,6 @@ class MonitoringService {
             return true;
         }
         else {
-            return false;
-        }
-    }
-    async getRedisStatus(redis) {
-        try {
-            await redis.ping();
-            return true;
-        }
-        catch (error) {
             return false;
         }
     }

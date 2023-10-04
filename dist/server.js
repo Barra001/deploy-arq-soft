@@ -31,7 +31,7 @@ const express = __importStar(require("express"));
 const endpoints_1 = require("./endpoints");
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
-async function initServer(platformActivitiesService, redisClient) {
+async function initServer(platformActivitiesService) {
     dotenv_1.default.config();
     const port = process.env.API_PORT;
     const app = express.default();
@@ -49,7 +49,7 @@ async function initServer(platformActivitiesService, redisClient) {
         next();
     });
     app.use(express.json());
-    app.use((await (0, endpoints_1.initEndpoints)(platformActivitiesService, redisClient)).router);
+    app.use((await (0, endpoints_1.initEndpoints)(platformActivitiesService)).router);
     app.listen(port);
     console.log(`Main app started at http://localhost:${port}`);
 }

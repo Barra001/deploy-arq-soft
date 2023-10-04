@@ -33,7 +33,7 @@ const admins_entity_1 = require("./admins/entities/admins.entity");
 const news_entity_1 = require("./news/entities/news.entity");
 const stock_entity_1 = require("./stock/entities/stock.entity");
 const transactions_entity_1 = require("./transactions/entities/transactions.entity");
-function initEndpoints(platformActivityService, redisClient) {
+function initEndpoints(platformActivityService) {
     const RouterWrapper = new router_wrapper_1.AppRouterWrapper(exception_filter_1.AppExceptionFilter.catch, platformActivityService);
     const gameRepository = new games_repository_1.GamesRepository(game_entity_1.GameModel);
     const playersRepository = new players_repository_1.PlayersRepository(players_entity_1.PlayerModel);
@@ -49,7 +49,7 @@ function initEndpoints(platformActivityService, redisClient) {
     const adminService = admins_factory_1.AdminsFactory.create(adminsRepository, encryptionService);
     const gamesService = games_factory_1.GamesFactory.create(platformActivityService, gameRepository, adminService);
     const newsService = news_factory_1.NewsFactory.create(platformActivityService, newsRepository);
-    const algorithmsService = algorithms_factory_1.AlgorithmsFactory.create(stocksService, transactionsService, platformActivityService, gamesService, redisClient);
+    const algorithmsService = algorithms_factory_1.AlgorithmsFactory.create(stocksService, transactionsService, platformActivityService, gamesService);
     const monitoringService = monitoring_service_factory_1.MonitoringServiceFactory.create();
     const gamesController = new games_controller_1.GamesController(gamesService, authService);
     const stockController = new stocks_controller_1.StocksController(stocksService, authService);
@@ -58,7 +58,7 @@ function initEndpoints(platformActivityService, redisClient) {
     const newsController = new news_controller_1.NewsController(newsService, authService);
     const transactionsController = new transactions_controller_1.TransactionsController(transactionsService, authService);
     const algorithmsController = new algorithms_controllers_1.AlgorithmsController(algorithmsService, authService);
-    const monitoringServiceController = new monitoring_service_controller_1.MonitoringServiceController(monitoringService, redisClient);
+    const monitoringServiceController = new monitoring_service_controller_1.MonitoringServiceController(monitoringService);
     RouterWrapper.post("/admins/login", (req, res) => adminController.logIn(req, res));
     RouterWrapper.post("/players", (req, res) => playerController.register(req, res));
     RouterWrapper.post("/players/login", (req, res) => playerController.logIn(req, res));

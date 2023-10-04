@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongo_database_1 = require("./database/mongo.database");
 const server_1 = require("./server");
 const plataform_activities_factory_1 = require("./plataform_activity/plataform_activities.factory");
-const redis_database_1 = require("./database/redis.database");
 const stream_1 = require("stream");
 const loggingWorker_1 = require("./plataform_activity/loggers/loggingWorker");
 (async () => {
@@ -18,8 +17,6 @@ const loggingWorker_1 = require("./plataform_activity/loggers/loggingWorker");
     });
     await (0, mongo_database_1.connectToMongoDatabase)();
     const plataformActivityService = plataform_activities_factory_1.PlataformActivitiesFactory.create(loggerService);
-    const redisClient = new redis_database_1.RedisClient(plataformActivityService);
-    await redisClient.connect();
-    await (0, server_1.initServer)(plataformActivityService, redisClient);
+    await (0, server_1.initServer)(plataformActivityService);
 })();
 //# sourceMappingURL=index.js.map

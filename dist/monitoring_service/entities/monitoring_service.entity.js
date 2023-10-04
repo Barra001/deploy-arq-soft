@@ -9,10 +9,6 @@ class MonitoringServiceEntity {
                 error: null,
             },
             ableToReceiveRequests: false,
-            redis: {
-                connected: false,
-                error: null,
-            },
         };
     }
 }

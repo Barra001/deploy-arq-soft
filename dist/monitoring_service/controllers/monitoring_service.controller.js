@@ -2,12 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MonitoringServiceController = void 0;
 class MonitoringServiceController {
-    constructor(monitoringService, redisClient) {
+    constructor(monitoringService) {
         this.monitoringService = monitoringService;
-        this.redisClient = redisClient;
     }
     async getSystemStatus(req, res) {
-        const status = await this.monitoringService.getStatus(this.redisClient);
+        const status = await this.monitoringService.getStatus();
         res.send(status);
     }
 }

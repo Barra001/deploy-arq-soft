@@ -5,10 +5,6 @@ export declare class MonitoringServiceEntity {
             error: string;
         };
         ableToReceiveRequests: boolean;
-        redis: {
-            connected: boolean;
-            error: string;
-        };
     };
     constructor();
 }

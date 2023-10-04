@@ -42,11 +42,9 @@ import { TransactionModel } from "./transactions/entities/transactions.entity";
 
 //services
 import { PlataformActivitiesServiceInterface } from "./plataform_activity/service/plataform_activities.service.interface";
-import { RedisClient } from "./database/redis.database";
 
 export function initEndpoints(
-  platformActivityService: PlataformActivitiesServiceInterface,
-  redisClient: RedisClient
+  platformActivityService: PlataformActivitiesServiceInterface
 ): AppRouterWrapper {
   const RouterWrapper = new AppRouterWrapper(
     AppExceptionFilter.catch,
@@ -97,8 +95,7 @@ export function initEndpoints(
     stocksService,
     transactionsService,
     platformActivityService,
-    gamesService,
-    redisClient
+    gamesService
   );
   const monitoringService = MonitoringServiceFactory.create();
   const gamesController = new GamesController(gamesService, authService);
@@ -117,8 +114,7 @@ export function initEndpoints(
   );
 
   const monitoringServiceController = new MonitoringServiceController(
-    monitoringService,
-    redisClient
+    monitoringService
   );
 
   /*----------------------ADMINS----------------------*/
